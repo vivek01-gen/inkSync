@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-900 text-white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold/50;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-ink-800/70 backdrop-blur-xl border border-white/5 rounded-2xl;
+  }
+
+  .gold-gradient-text {
+    @apply bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 bg-gradient-to-r from-gold to-gold-light text-ink-900 font-bold rounded-full 
+           shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30 
+           transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 border-2 border-gold/50 text-gold font-semibold rounded-full 
+           hover:bg-gold/10 hover:border-gold transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .input-field {
+    @apply w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white 
+           placeholder-white/30 focus:border-gold focus:ring-2 focus:ring-gold/20 
+           outline-none transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply text-white/70 hover:text-gold transition-colors duration-300 relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
